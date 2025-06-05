@@ -1,0 +1,76 @@
+/* Base filters */
+.filter-pastel {
+  filter: contrast(0.8) brightness(1.2) saturate(0.8);
+}
+
+.filter-kawaii {
+  filter: brightness(1.1) contrast(0.9) saturate(1.4) hue-rotate(5deg);
+}
+
+.filter-dreamy {
+  filter: brightness(1.1) contrast(0.85) saturate(0.75) sepia(0.15);
+}
+
+.filter-vintage {
+  filter: sepia(0.35) contrast(1.1) brightness(0.9) saturate(0.8);
+
+}
+
+/* Animation for the photostrip */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.photo-appears {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Flash animation */
+@keyframes flash {
+  0% { background-color: rgba(255, 255, 255, 0); }
+  50% { background-color: rgba(255, 255, 255, 0.8); }
+  100% { background-color: rgba(255, 255, 255, 0); }
+}
+
+.camera-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0);
+  pointer-events: none;
+  animation: flash 0.5s ease-out;
+}
+
+/* Background pattern */
+.bg-pattern {
+  background-image: 
+    radial-gradient(circle at 100% 100%, #ff93b9 0, transparent 20%),
+    radial-gradient(circle at 0% 0%, #73c7ff 0, transparent 20%);
+  background-size: 50% 50%;
+  background-position: 0 0;
+  animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Floating animation */
+.float {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
